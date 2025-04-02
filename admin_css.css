@@ -1,0 +1,208 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.sve {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    /*background-color: #007bff;
+    color: #fff;*/
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+
+#link_odjava{
+    display: inline-block;
+    margin-right:10px;
+    padding: 5px 5px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+
+#link_odjava:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #007bff;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+input[name="sbmt_pretrazi_ucenika"],input[name="pretrazi_ucenika"]{
+    width: 300px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+}
+
+table thead{
+    background-color: #007bff;
+    color:white;
+}
+
+table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.edit-link, .delete-link {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .sve {
+        border-radius: 0;
+    }
+    header {
+        border-radius: 0;
+    }
+}
+
+#datepicker{
+    width:100px; 
+    background-color: #61616d; 
+    color:white;
+    float: right;
+}
+
+
+
+/* Wrapper za select listu */
+.custom-select {
+    position: relative; /*mora biti zbog strelice*/
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Stilizacija select elementa */
+  .custom-select select {
+    width: 90px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    border: 1px solid #007bff; /* Promijenite boju obruba prema želji */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    -webkit-appearance: none; /* Uklanja osnovni stil browsera */
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Dodavanje strelice */
+  .custom-select::after {
+    content: '\25BC'; /* Unicode za strelicu */
+    position: absolute;
+    top: 50%;
+    left: 70px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #333;
+    pointer-events: none;
+  }
+  
+  /* Hover efekti */
+  .custom-select select:hover {
+    border-color: #3E8E41; /* Svjetlija zelena boja prilikom hovera */
+    background-color: #f1f1f1;
+  }
+  
+  .custom-select select:focus {
+    outline: none;
+    border-color: #2E7D32; /* Tamnija boja kod fokusa */
+  }
+  
+  /* Stilizacija opcija unutar select liste */
+  .custom-select select option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+
+  .logiranje{
+    text-align: center;
+  }
