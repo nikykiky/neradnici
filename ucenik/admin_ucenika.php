@@ -400,6 +400,7 @@ input[type="date"]:focus {
 						url: "dodaj_ucenika.php",
 						data: {"ime_ucenika" : ime_ucenika, "prezime_ucenika" : prezime_ucenika, "oib_ucenika":oib_ucenika,"datum_rodenja":datum_rodenja,"adresa_ucenika":adresa_ucenika,"grad_ucenika":grad_ucenika,"spol_ucenika":spol_ucenika,"rjesenje_ucenika":rjesenje_ucenika,"klasa_ucenika":klasa_ucenika,"ime_oca":ime_oca,"mob_oca":mob_oca,"ime_majke":ime_majke,"mob_majke":mob_majke,"id_razreda":id_razreda,"id_sk_god":id_sk_god},
 						success: function (rez) {
+							alert("Učenik je dodan");
 							//location.reload(); 
 							//var redak = $("#tablica_dnevnika_rada tbody tr[data-id='" + id_unosa_za_edit + "']");
 							//redak.find("td").eq(0).text(unos); 
