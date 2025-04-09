@@ -167,39 +167,28 @@ INSERT INTO `stsl_razrednik` (`ime`, `prezime`, `telefon`) VALUES
 
 
 
-
-
-
-INSERT INTO `stsl_ucenik` (`ime`, `prezime`, `oib`, `datum_rodenja`, `adresa`, `grad`, `spol`, `rjesenje`, `klasa`, `id_roditelja`) 
-VALUES 
-('Marko', 'Smilović', 12345678901, '2010-05-12', 'Ulica 1', 'Zagreb', 'musko', 'Nema rješenja', '5A', 1),
-('Ivana', 'Balić', 98765432109, '2009-03-22', 'Ulica 2', 'Split', 'zensko', 'Nema rješenja', '6B', 2),
-('Petar', 'Balić', 11223344556, '2011-06-17', 'Ulica 3', 'Zadar', 'musko', 'Nema rješenja', '4C', 3),
-('Lucija', 'Franković', 12309876543, '2012-01-15', 'Ulica 4', 'Dubrovnik', 'zensko', 'Nema rješenja', '7A', 4),
-('Sara', 'Franković', 98701234567, '2013-08-30', 'Ulica 5', 'Osijek', 'zensko', 'Nema rješenja', '3B', 5),
-('Nikola', 'Lozert', 99887766554, '2010-11-05', 'Ulica 6', 'Zagreb', 'musko', 'Nema rješenja', '5A', 6);
-
-
-
-
-
-//dodavanje ime i prezime mame i tate uz ucenika
+//dodavanje ime, prezime, telefona mame i tate uz ucenika
 ALTER TABLE `stsl_ucenik` ADD COLUMN`ime_ro` char(15), ADD COLUMN`prezime_ro` char(30), ADD COLUMN`telefon` char(11);
+
+
 SELECT * FROM `stsl_ucenik`
-INSERT INTO `stsl_ucenik` (`ime`, `prezime`, `oib`, `datum_rodenja`, `adresa`, `grad`, `spol`, `rjesenje`, `klasa`,`ime_ro`,`prezime_ro`,`telefon`) VALUES ('Nikolina', 'Smilović', 1111111111, '2011-01-01', 'Matice Hrvatske 11', 'Split', 'zensko', 'rjesenje1', 'klasa1','Ante', 'Smilović','0917894516'), ('Ana Maria', 'Ugrin', 1111111111, '2011-01-01', 'Matice Hrvatske 11', 'Split', 'zensko', 'rjesenje1', 'klasa1','Ana', 'Balić', '0971452631'), ('Nataša', 'Burilović', 1111111111, '2011-01-01', 'Matice Hrvatske 11', 'Split', 'zensko', 'rjesenje1', 'klasa1','Karlo', 'Balić', '0971452622'), ('Antonia', 'Borzić', 1111111111, '2011-01-01', 'Matice Hrvatske 11', 'Split', 'zensko', 'rjesenje1', 'klasa1','Josip', 'Franković', '0981472536');
+UPDATE stsl_ucenik SET ime_ro='Duje', prezime_ro='Agregator', telefon='099576939' WHERE id_uc=1;
 SELECT * FROM `stsl_ucenik`
-DELETE FROM `stsl_ucenik` WHERE `stsl_ucenik`.`id_uc` = 1
-DELETE FROM `stsl_ucenik` WHERE `stsl_ucenik`.`id_uc` = 2
-DELETE FROM `stsl_ucenik` WHERE `stsl_ucenik`.`id_uc` = 3
-DELETE FROM `stsl_ucenik` WHERE `stsl_ucenik`.`id_uc` = 4
+UPDATE stsl_ucenik SET ime_ro='Nada', prezime_ro='Neradnik', telefon='099147392' WHERE id_uc=2;
 SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro='Natasa', prezime_ro='Neradnik', telefon='094473930' WHERE id_uc=3;
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro='dobar', prezime_ro='roditelj', telefon='0998503040' WHERE id_uc=4;
+
+
 ALTER TABLE stsl_ucenik ADD COLUMN ime_ro2 CHAR(16), ADD COLUMN prezime_ro2 CHAR(16), ADD COLUMN telefon_ro2 CHAR(16);
+
+
 SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro2='TAra', prezime_ro2='Kralj', telefon_ro2='0991256394' WHERE id_uc=1;
 SELECT * FROM `stsl_ucenik`
-UPDATE stsl_ucenik SET ime_ro2='TAra', prezime_ro2='Kralj', telefon_ro2='0991256394' WHERE id_uc=5;
+UPDATE stsl_ucenik SET ime_ro2='Arsen', prezime_ro2='Neradnik', telefon_ro2='099136488' WHERE id_uc=2;
 SELECT * FROM `stsl_ucenik`
-UPDATE stsl_ucenik SET ime_ro2='Arsen', prezime_ro2='Neradnik', telefon_ro2='099136488' WHERE id_uc=6;
+UPDATE stsl_ucenik SET ime_ro2='Mrse', prezime_ro2='Neradnik', telefon_ro2='0946583758' WHERE id_uc=3;
 SELECT * FROM `stsl_ucenik`
-UPDATE stsl_ucenik SET ime_ro2='Mrse', prezime_ro2='Neradnik', telefon_ro2='0946583758' WHERE id_uc=7;
-SELECT * FROM `stsl_ucenik`
-UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='09937485893' WHERE id_uc=8;
+UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='09937485893' WHERE id_uc=4;
