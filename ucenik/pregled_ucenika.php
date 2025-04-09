@@ -100,6 +100,8 @@ while ($redak = mysqli_fetch_assoc($pdtc_ucenika)) {
     echo "OIB: ".$redak['oib']."<br />";
     echo "Adresa: ".$redak['adresa']."<br />";
     echo "Grad: ".$redak['grad']."<br />";
+    echo "Telefon 1: ".$redak['telefon']."<br />";
+    echo "Telefon 2: ".$redak['telefon_ro2']."<br />";
 }
 
 echo "<h1>Bilješke</h1>";
