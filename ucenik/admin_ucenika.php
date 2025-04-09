@@ -139,6 +139,7 @@ input[type="date"]:focus {
 			$razredi = mysqli_query($conn,$razredi_upit);
 			echo "
 			<div class='custom-select'>
+<<<<<<< HEAD
 			<form action='".$_SERVER['PHP_SELF']."' method='POST' id='forma_select'>
 				<select name='razred' onchange='this.form.submit()'>
 				<option value='--'>--</option>";
@@ -153,6 +154,25 @@ input[type="date"]:focus {
 			// onchange='this.form.submit()' onchange='dodaj_ucu()'
 
 
+=======
+    			<form action='".$_SERVER['PHP_SELF']."' method='POST' id='forma_select'>
+       			<select name='razred' onchange='this.form.submit()'>
+            <option value='--'>--</option>";
+
+			while($raz = mysqli_fetch_array($razredi)) {
+				
+				if (isset($_POST['razred']) && $_POST['razred'] == $raz['oznaka_raz']) {
+					echo "<option value='".$raz['oznaka_raz']."' selected>".$raz['oznaka_raz']."</option>";
+				} else {
+					echo "<option value='".$raz['oznaka_raz']."'>".$raz['oznaka_raz']."</option>";
+				}
+			}
+			echo "
+        </select>
+    </form>
+</div>";
+				//<input type='submit' name='ispis_po_razredu' value='Pregledaj'/>
+>>>>>>> 6dc2fc0e1ee78dd802e58127f663fbd190b6e4fc
 			//echo '<input type="submit" onclick="dodaj_ucu()" value="Dodaj učenika" />';
 		?>	
 	</div>
@@ -173,13 +193,18 @@ input[type="date"]:focus {
 
 
 <?php
+<<<<<<< HEAD
 	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['razred'])) {
+=======
+	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['razred']) && $_POST['razred'] !== '--') {
+		$razred = mysqli_real_escape_string($conn, $_POST['razred']);
+>>>>>>> 6dc2fc0e1ee78dd802e58127f663fbd190b6e4fc
 		$rezultat = mysqli_query($conn,"
 		SELECT *
 		FROM stsl_ucenik_razred
 		INNER JOIN stsl_ucenik ON stsl_ucenik_razred.id_uc = stsl_ucenik.id_uc 
 		INNER JOIN stsl_razred ON stsl_ucenik_razred.id_ra = stsl_razred.id_raz 
-		WHERE stsl_razred.oznaka_raz = '$_POST[razred]'
+		WHERE stsl_razred.oznaka_raz = '$razred'
 		order by oznaka_raz desc;");
     
 		echo "<table border='1'>
@@ -408,6 +433,7 @@ input[type="date"]:focus {
 						url: "dodaj_ucenika.php",
 						data: {"ime_ucenika" : ime_ucenika, "prezime_ucenika" : prezime_ucenika, "oib_ucenika":oib_ucenika,"datum_rodenja":datum_rodenja,"adresa_ucenika":adresa_ucenika,"grad_ucenika":grad_ucenika,"spol_ucenika":spol_ucenika,"rjesenje_ucenika":rjesenje_ucenika,"klasa_ucenika":klasa_ucenika,"ime_oca":ime_oca,"mob_oca":mob_oca,"ime_majke":ime_majke,"mob_majke":mob_majke,"id_razreda":id_razreda,"id_sk_god":id_sk_god},
 						success: function (rez) {
+							alert("Učenik je dodan");
 							//location.reload(); 
 							//var redak = $("#tablica_dnevnika_rada tbody tr[data-id='" + id_unosa_za_edit + "']");
 							//redak.find("td").eq(0).text(unos); 

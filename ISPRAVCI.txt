@@ -13,7 +13,7 @@ stsl2024
 ! svak svoje može samo brisati
 ! kad vratim datum na 26.3 da upisem na taj datum a ne na danasnji
 ! u bazi slovo š i ć
-! da mi odabir razreda radi na onchange
++ da mi odabir razreda radi na onchange
 ! edit uređivanje bilješki od učenika
 ! na dodaj učenika - id skolske godiine neka pise koja je godina
 ! ime oca i majke nadodati na tablicu od ucenika 
