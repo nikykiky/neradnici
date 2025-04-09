@@ -139,18 +139,23 @@ input[type="date"]:focus {
 			$razredi = mysqli_query($conn,$razredi_upit);
 			echo "
 			<div class='custom-select'>
-			<form action='".$_SERVER['PHP_SELF']."' method='POST' id='forma_select'>
-				<select name='razred'>
-				<option value='--'>--</option>";
-				while($raz = mysqli_fetch_array($razredi))
-				{
+    			<form action='".$_SERVER['PHP_SELF']."' method='POST' id='forma_select'>
+       			<select name='razred' onchange='this.form.submit()'>
+            <option value='--'>--</option>";
+
+			while($raz = mysqli_fetch_array($razredi)) {
+				
+				if (isset($_POST['razred']) && $_POST['razred'] == $raz['oznaka_raz']) {
+					echo "<option value='".$raz['oznaka_raz']."' selected>".$raz['oznaka_raz']."</option>";
+				} else {
 					echo "<option value='".$raz['oznaka_raz']."'>".$raz['oznaka_raz']."</option>";
 				}
-				echo "</select>
-				<input type='submit' name='ispis_po_razredu' value='Pregledaj'/>
-			</form>
-			</div>";
-
+			}
+			echo "
+        </select>
+    </form>
+</div>";
+				//<input type='submit' name='ispis_po_razredu' value='Pregledaj'/>
 			//echo '<input type="submit" onclick="dodaj_ucu()" value="Dodaj učenika" />';
 		?>	
 	</div>
@@ -171,13 +176,14 @@ input[type="date"]:focus {
 
 
 <?php
-	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ispis_po_razredu'])) {
+	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['razred']) && $_POST['razred'] !== '--') {
+		$razred = mysqli_real_escape_string($conn, $_POST['razred']);
 		$rezultat = mysqli_query($conn,"
 		SELECT *
 		FROM stsl_ucenik_razred
 		INNER JOIN stsl_ucenik ON stsl_ucenik_razred.id_uc = stsl_ucenik.id_uc 
 		INNER JOIN stsl_razred ON stsl_ucenik_razred.id_ra = stsl_razred.id_raz 
-		WHERE stsl_razred.oznaka_raz = '$_POST[razred]'
+		WHERE stsl_razred.oznaka_raz = '$razred'
 		order by oznaka_raz desc;");
     
 		echo "<table border='1'>
