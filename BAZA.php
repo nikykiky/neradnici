@@ -168,13 +168,13 @@ ALTER TABLE `stsl_ucenik` ADD COLUMN`ime_ro` char(15), ADD COLUMN`prezime_ro` ch
 
 
 SELECT * FROM `stsl_ucenik`
-UPDATE stsl_ucenik SET ime_ro='Duje', prezime_ro='Agregator', telefon_ro='099576939' WHERE id_uc=1;
+UPDATE stsl_ucenik SET ime_ro='Duje', prezime_ro='Agregator', telefon='099576939' WHERE id_uc=1;
 SELECT * FROM `stsl_ucenik`
-UPDATE stsl_ucenik SET ime_ro='Nada', prezime_ro='Neradnik', telefon_ro='099147392' WHERE id_uc=2;
+UPDATE stsl_ucenik SET ime_ro='Nada', prezime_ro='Neradnik', telefon='099147392' WHERE id_uc=2;
 SELECT * FROM `stsl_ucenik`
-UPDATE stsl_ucenik SET ime_ro='Natasa', prezime_ro='Neradnik', telefon_ro='094473930' WHERE id_uc=3;
+UPDATE stsl_ucenik SET ime_ro='Natasa', prezime_ro='Neradnik', telefon='094473930' WHERE id_uc=3;
 SELECT * FROM `stsl_ucenik`
-UPDATE stsl_ucenik SET ime_ro='dobar', prezime_ro='roditelj', telefon_ro='0998503040' WHERE id_uc=4;
+UPDATE stsl_ucenik SET ime_ro='dobar', prezime_ro='roditelj', telefon='0998503040' WHERE id_uc=4;
 
 
 ALTER TABLE stsl_ucenik ADD COLUMN ime_ro2 CHAR(16), ADD COLUMN prezime_ro2 CHAR(16), ADD COLUMN telefon_ro2 CHAR(16);
