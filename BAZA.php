@@ -10,7 +10,11 @@ CREATE TABLE `stsl_ucenik` (
 `grad` char(15),
 `spol` enum('musko','zensko'),
 `rjesenje` char(45),
-`klasa` char(45)
+`klasa` char(45),
+`id_ro` int(4) auto_increment primary key, 
+`ime` char(15),  
+`prezime` char(30),
+`telefon` char(11)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
