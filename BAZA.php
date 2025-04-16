@@ -10,7 +10,11 @@ CREATE TABLE `stsl_ucenik` (
 `grad` char(15),
 `spol` enum('musko','zensko'),
 `rjesenje` char(45),
-`klasa` char(45)
+`klasa` char(45),
+`id_ro` int(4) auto_increment primary key, 
+`ime` char(15),  
+`prezime` char(30),
+`telefon` char(11)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -161,3 +165,30 @@ INSERT INTO `stsl_razrednik` (`ime`, `prezime`, `telefon`) VALUES
 ('Martina', 'Javorčić', '0981472511'),
 ('Jelena', 'Gluić', '0917418520');
 
+
+
+//dodavanje ime, prezime, telefona mame i tate uz ucenika
+ALTER TABLE `stsl_ucenik` ADD COLUMN`ime_ro` char(15), ADD COLUMN`prezime_ro` char(30), ADD COLUMN`telefon` char(11);
+
+
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro='Duje', prezime_ro='Agregator', telefon='099576939' WHERE id_uc=1;
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro='Nada', prezime_ro='Neradnik', telefon='099147392' WHERE id_uc=2;
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro='Natasa', prezime_ro='Neradnik', telefon='094473930' WHERE id_uc=3;
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro='dobar', prezime_ro='roditelj', telefon='0998503040' WHERE id_uc=4;
+
+
+ALTER TABLE stsl_ucenik ADD COLUMN ime_ro2 CHAR(16), ADD COLUMN prezime_ro2 CHAR(16), ADD COLUMN telefon_ro2 CHAR(16);
+
+
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro2='TAra', prezime_ro2='Kralj', telefon_ro2='0991256394' WHERE id_uc=1;
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro2='Arsen', prezime_ro2='Neradnik', telefon_ro2='099136488' WHERE id_uc=2;
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro2='Mrse', prezime_ro2='Neradnik', telefon_ro2='0946583758' WHERE id_uc=3;
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='09937485893' WHERE id_uc=4;

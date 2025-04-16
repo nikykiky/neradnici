@@ -140,16 +140,18 @@ input[type="date"]:focus {
 			echo "
 			<div class='custom-select'>
 			<form action='".$_SERVER['PHP_SELF']."' method='POST' id='forma_select'>
-				<select name='razred'>
+				<select name='razred' onchange='this.form.submit()'>
 				<option value='--'>--</option>";
 				while($raz = mysqli_fetch_array($razredi))
 				{
 					echo "<option value='".$raz['oznaka_raz']."'>".$raz['oznaka_raz']."</option>";
 				}
 				echo "</select>
-				<input type='submit' name='ispis_po_razredu' value='Pregledaj'/>
 			</form>
 			</div>";
+
+			// onchange='this.form.submit()' onchange='dodaj_ucu()'
+
 
 			//echo '<input type="submit" onclick="dodaj_ucu()" value="Dodaj učenika" />';
 		?>	
@@ -171,7 +173,7 @@ input[type="date"]:focus {
 
 
 <?php
-	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ispis_po_razredu'])) {
+	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['razred'])) {
 		$rezultat = mysqli_query($conn,"
 		SELECT *
 		FROM stsl_ucenik_razred
@@ -356,11 +358,17 @@ input[type="date"]:focus {
 
 
 	<script>
+		function ispis() {
+			console.log("fxhxgfh")
+		}
 		document.addEventListener('DOMContentLoaded', function() {
 			// DOM je spreman
 			console.log("DOM je spreman")
 			document.querySelector('[name="sbmt_dodaj_ucenika"]').onclick = dodaj_ucu;
 		});
+
+		
+
 
 		function dodaj_ucu() {
 			console.log("weegfb")
@@ -400,7 +408,6 @@ input[type="date"]:focus {
 						url: "dodaj_ucenika.php",
 						data: {"ime_ucenika" : ime_ucenika, "prezime_ucenika" : prezime_ucenika, "oib_ucenika":oib_ucenika,"datum_rodenja":datum_rodenja,"adresa_ucenika":adresa_ucenika,"grad_ucenika":grad_ucenika,"spol_ucenika":spol_ucenika,"rjesenje_ucenika":rjesenje_ucenika,"klasa_ucenika":klasa_ucenika,"ime_oca":ime_oca,"mob_oca":mob_oca,"ime_majke":ime_majke,"mob_majke":mob_majke,"id_razreda":id_razreda,"id_sk_god":id_sk_god},
 						success: function (rez) {
-							alert("Učenik je dodan");
 							//location.reload(); 
 							//var redak = $("#tablica_dnevnika_rada tbody tr[data-id='" + id_unosa_za_edit + "']");
 							//redak.find("td").eq(0).text(unos); 
