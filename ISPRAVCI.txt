@@ -10,15 +10,17 @@ stsl2024
 + PREGLED UCENIKA
 + DODAVAJENJE ucenika radi
 
+
 ! svak svoje može samo brisati
+! edit uređivanje bilješki od učenika
 ! kad vratim datum na 26.3 da upisem na taj datum a ne na danasnji
+
 ! u bazi slovo š i ć
 ! da mi odabir razreda radi na onchange
-! edit uređivanje bilješki od učenika
 ! na dodaj učenika - id skolske godiine neka pise koja je godina
 ! ime oca i majke nadodati na tablicu od ucenika 
-! dodaj obavijest da je dodan ucenika
 
 
-!!kad dodam biljesku kod ucenika pise uspjesno uneseno, unosi mi dva puta i trebam refrashat stranicu da vidim odgovor
+
+!!kad dodam biljesku kod ucenika pise uspjesno uneseno, unosi mi dva puta i trebam refrashat stranicu da vidim odgovor...
 
