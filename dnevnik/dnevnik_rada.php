@@ -185,7 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
 		var id_delete_dnevnika_rada = obj.getAttribute('data-dr_id');
 		//console.log(id_delete_dnevnika_rada);
 		
-		if (confirm("Jesi sigurna :/") == true) {
+		if (confirm("Jesi siguran/na :/") == true) {
 			$.ajax({
 				type: "POST",
 				url: "sql_izbrisi_iz_dnevnika.php",
@@ -299,7 +299,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
 
 		}
 	});
-
+	if (mysqli_query($conn, $insertQuery)) {
+		echo "<script>alert('Učenik je uspješno dodan!');</script>";
+	}
 
 </script>
 </body>
