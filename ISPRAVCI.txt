@@ -22,6 +22,7 @@ stsl2024
 ! ime oca i majke nadodati na tablicu od ucenika 
 
 
+!!kad dodam biljesku kod ucenika pise uspjesno uneseno, unosi mi dva puta i trebam refrashat stranicu da vidim odgovor
+Andreo Huljic
+andreo 2
 
-!!kad dodam biljesku kod ucenika pise uspjesno uneseno, unosi mi dva puta i trebam refrashat stranicu da vidim odgovor...
-!!arsen
