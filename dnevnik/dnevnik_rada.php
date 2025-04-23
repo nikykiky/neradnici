@@ -88,16 +88,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
         $id = $redak['id_dr'];
         $dt = new DateTime($redak['datum_unosa']);
         $vrijeme = $dt->format('H:i');
-
+		echo $id;
         echo "<tr valign='top' data-id='".$id."'><td>";
         echo $redak['opis'];
         echo "</td><td>";
         echo $redak['ime'] . " " . $vrijeme;
         echo "</td><td>";
+		if( $_SESSION['user_id'] == $redak['id_ko']){
         echo "<a onclick='uredi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
         echo "</td><td>";
         echo "<a onclick='izbrisi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
+        echo "</td></tr>";}
+		else{
+			echo "<a style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
+        echo "</td><td>";
+        echo "<a style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
         echo "</td></tr>";
+		}
     }
 	echo "</tbody></table>";
 
