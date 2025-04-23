@@ -299,7 +299,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
 
 		}
 	});
-
+	
 
 </script>
 </body>
