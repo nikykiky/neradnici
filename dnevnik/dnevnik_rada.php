@@ -313,8 +313,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
 
 		}
 	});
+<<<<<<< HEAD
 
 
+=======
+	
+
+>>>>>>> 02e83645b5e60080e98d7bcca116cf56ad38ee2a
 </script>
 </body>
 </html>
