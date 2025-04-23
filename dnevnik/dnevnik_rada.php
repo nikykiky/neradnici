@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
         echo "</td></tr>";}
 		else{
 			echo "<a style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
-        echo "</td><td>";
+        echo "</td><td>";//hhh
         echo "<a style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
         echo "</td></tr>";
 		}
