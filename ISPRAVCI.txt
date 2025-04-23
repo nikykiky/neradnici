@@ -26,3 +26,5 @@ stsl2024
 Andreo Huljic
 andreo 2
 
+GIT GUI-COMMIT
+
