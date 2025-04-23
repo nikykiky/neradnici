@@ -35,7 +35,6 @@ body {
 	margin-left: auto;
 	width:480px;
 	padding-left: 230px;
-	background-color: ;
 	border-top-width: 2 px;
 	border-bottom-width: 2px;
 	border-top-style: solid;
@@ -206,4 +205,21 @@ a:hover {
 {
 width: 445px;
 margin-bottom: 10px;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }

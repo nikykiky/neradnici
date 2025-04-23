@@ -54,8 +54,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 			$id_sk_god = $_POST['id_sk_god'];
 		
 			// Insert data into the respective tables using prepared statements
-			$stmt_ucenik = $conn->prepare("INSERT INTO stsl_ucenik (ime, prezime, oib, datum_rodenja, adresa, grad, spol, rjesenje, klasa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			$stmt_ucenik->bind_param("ssissssss", $ime_ucenika, $prezime_ucenika, $oib_ucenika, $datum_rodenja, $adresa_ucenika, $grad_ucenika, $spol_ucenika, $rjesenje_ucenika, $klasa_ucenika);
+			$stmt_ucenik = $conn->prepare("INSERT INTO stsl_ucenik (ime, prezime, oib, datum_rodenja, adresa, grad, spol, rjesenje, klasa, ime_ro, telefon, ime_ro2, telefon_ro2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			$stmt_ucenik->bind_param("ssissssssssss", $ime_ucenika, $prezime_ucenika, $oib_ucenika, $datum_rodenja, $adresa_ucenika, $grad_ucenika, $spol_ucenika, $rjesenje_ucenika, $klasa_ucenika, $ime_oca, $mob_oca, $ime_majke, $mob_majke );
 		
 			if ($stmt_ucenik->execute()) {
 				$id_ucenika = $conn->insert_id;
