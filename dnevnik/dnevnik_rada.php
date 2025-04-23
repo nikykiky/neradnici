@@ -68,6 +68,7 @@
             WHERE datum_unosa LIKE '$danasnji_datum%'
         ");
 
+<<<<<<< HEAD
         echo "<h3 style='display: inline-block;'>Pregled dnevnika rada za datum: <span id='odabrani_datum'>".date("d-m")."</span></h3>";
         echo "<input type='text' id='datepicker'>";
         echo "<table id='tablica_dnevnika_rada' border='1'>
@@ -85,6 +86,31 @@
             $id = $redak['id_dr'];
             $dt = new DateTime($redak['datum_unosa']);
             $vrijeme = $dt->format('H:i');
+=======
+    while ($redak = mysqli_fetch_array($pdtc_dnevnik_rada)) {
+        $id = $redak['id_dr'];
+        $dt = new DateTime($redak['datum_unosa']);
+        $vrijeme = $dt->format('H:i');
+		echo $id;
+        echo "<tr valign='top' data-id='".$id."'><td>";
+        echo $redak['opis'];
+        echo "</td><td>";
+        echo $redak['ime'] . " " . $vrijeme;
+        echo "</td><td>";
+		if( $_SESSION['user_id'] == $redak['id_ko']){
+        echo "<a onclick='uredi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
+        echo "</td><td>";
+        echo "<a onclick='izbrisi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
+        echo "</td></tr>";}
+		else{
+			echo "<a style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
+        echo "</td><td>";
+        echo "<a style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
+        echo "</td></tr>";
+		}
+    }
+	echo "</tbody></table>";
+>>>>>>> f0e072c608cb4b54b35e429c63af2dbb1849b7da
 
             echo "<tr valign='top' data-id='".$id."'><td>";
             echo $redak['opis'];
@@ -192,6 +218,7 @@
         }
     }
 
+<<<<<<< HEAD
     $("#dialog").dialog({
         autoOpen: false,
         height: 400,
@@ -224,6 +251,133 @@
         var opis_dnevnika_rada = obj.getAttribute('data-dr_opis');
         var loggedInUserId = <?= $_SESSION['user_id']; ?>;
         var recordOwnerId = obj.getAttribute('data-owner-id');
+=======
+	$("#printButton").click(function() {
+		window.print();
+	});
+
+	function izbrisi_unos_iz_dnevnika(obj) {
+		var id_delete_dnevnika_rada = obj.getAttribute('data-dr_id');
+		//console.log(id_delete_dnevnika_rada);
+		
+		if (confirm("Jesi siguran/na :/") == true) {
+			$.ajax({
+				type: "POST",
+				url: "sql_izbrisi_iz_dnevnika.php",
+				data: {"id_unosa_za_brisanje" : id_delete_dnevnika_rada},
+				success: function (rez) {
+					location.reload(); 
+				}
+			});
+		}
+	}
+
+	$("#dialog").dialog({
+		autoOpen: false,
+		height: 400,
+		width: 450,
+		modal: true,
+		resizable: true,
+		buttons: {
+			"Unesi": function() {
+				var unos = $('#dialog').find("textarea").val();
+				var id_unosa_za_edit = $('#dialog').find("input").val();
+				$.ajax({
+					type: "POST",
+					url: "spremi_editirani_unos_iz_dnevnika.php",
+					data: {"opis_dnevnik_rada" : unos, "id_unosa_za_edit" : id_unosa_za_edit },
+					success: function (rez) {
+						//location.reload(); 
+						var redak = $("#tablica_dnevnika_rada tbody tr[data-id='" + id_unosa_za_edit + "']");
+                		redak.find("td").eq(0).text(unos); 
+					}
+				});
+				$(this).dialog("close");
+			},
+			"Odustani": function() {
+				$(this).dialog("close");
+			}
+		}
+	});
+
+	function uredi_unos_iz_dnevnika(obj) {
+		var opis_dnevnika_rada = obj.getAttribute('data-dr_opis');
+		var id_unosa_za_edit = obj.getAttribute('data-dr_id');
+		$('#dialog').find("textarea").val(opis_dnevnika_rada);
+		$('#dialog').find("input").val(id_unosa_za_edit);
+		$('#dialog').dialog('open');
+	}
+
+
+	var danasnjiDatum = new Date();
+	var dan = danasnjiDatum.getDate();
+	var mjesec = danasnjiDatum.getMonth() + 1; // Mjeseci kreću od 0
+	var godina = danasnjiDatum.getFullYear();
+	// Formatirajte datum prema vašim željama (npr., "dd.mm.yyyy")
+	var formatiraniDatum =  dan + '-' + mjesec + '-' + godina;
+	// Postavite vrijednost input polja na današnji datum
+	$("#datepicker").val(formatiraniDatum);
+
+	$("#datepicker").datepicker({
+		dateFormat: "mm-dd-yy", 
+		onSelect: function(dateText, inst) {
+			var odabrani_datum  = new Date(dateText);
+			console.log("dateText",dateText) //10-15-2024
+			console.log("odabrani_datum",odabrani_datum) //Tue Oct 15 2024 00:00:00 GMT+0200
+			var datum_za_bazu = odabrani_datum.getFullYear() + '-' + ((odabrani_datum.getMonth() + 1) < 10 ? '0' : '') + (odabrani_datum.getMonth() + 1) + '-' + ((odabrani_datum.getDate() + 1) < 10 ? '0' : '') + (odabrani_datum.getDate());
+			var kratki_datum = ((odabrani_datum.getDate() + 1) < 10 ? '0' : '') + (odabrani_datum.getDate()) + '-' + ((odabrani_datum.getMonth() + 1) < 10 ? '0' : '') + (odabrani_datum.getMonth() + 1);
+			console.log("datum_za_bazu", datum_za_bazu)
+			
+			$.ajax({
+				type: "POST",
+				url: "sql_dohvati_po_datumu.php",
+				dataType: "json",  
+				data: {"datum": datum_za_bazu},
+				success: function (podaci) {
+					console.log("Success:", podaci);
+
+					// Dnevnik rada
+					$("#datepicker").val(datum_za_bazu);
+					$("#odabrani_datum").text(kratki_datum);
+					
+					var dnevnikBody = $("#tablica_dnevnika_rada tbody");
+					var noviDnevnikRedak = ""; // Inicijalizirajte kao prazan string
+					podaci.dnevnik.forEach(function(redak) {
+						noviDnevnikRedak += 
+						`<tr data-id='${redak.id}'>
+							<td>${redak.opis}</td>
+							<td>${redak.datum_unosa}</td> 
+							<td><a onclick='uredi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_opis='${redak.opis}' data-dr_id='${redak.id}'>Uredi</a></td>
+							<td><a onclick='izbrisi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_id='${redak.id}'>Izbriši</a></td>
+						</tr>`;
+					});
+					dnevnikBody.html(noviDnevnikRedak);
+
+					// Bilješke
+					var biljeskeBody = $("#tablica_biljeske tbody");
+					var noviBiljeskaRedak = ""; // Inicijalizirajte kao prazan string
+					podaci.biljeske.forEach(function(redak_bilj) {
+						noviBiljeskaRedak += 
+						`<tr data-id='${redak_bilj.id_uc}'>
+							<td>${redak_bilj.oznaka_raz}</td>
+							<td><a href="../ucenik/pregled_ucenika.php?id_ucenika=${redak_bilj.id_uc}">${redak_bilj.ime} ${redak_bilj.prezime}</a></td>
+							<td>${redak_bilj.opis}</td>
+						</tr>`;
+					});
+					biljeskeBody.html(noviBiljeskaRedak);
+				},
+				error: function (xhr, status, error) {
+					console.error("AJAX Error:", status, error);
+					console.log("Response Text:", xhr.responseText);
+				}
+			});
+
+		}
+	});
+	if (mysqli_query($conn, $insertQuery)) {
+		echo "<script>alert('Učenik je uspješno dodan!');</script>";
+	}
+>>>>>>> f0e072c608cb4b54b35e429c63af2dbb1849b7da
 
         if (loggedInUserId == recordOwnerId) {
             $('#dialog').find("textarea").val(opis_dnevnika_rada);

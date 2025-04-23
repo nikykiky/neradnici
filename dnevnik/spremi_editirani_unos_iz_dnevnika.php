@@ -9,7 +9,7 @@
     $servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname = "dnevnik_rada_psiholog";
+	$dbname = "gogstorg_zavrsni";
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     $result = "UPDATE stsl_dnevnik_rada SET opis='$_POST[opis_dnevnik_rada]' where id_dr='$_POST[id_unosa_za_edit]'";
