@@ -1,3 +1,35 @@
+<<<<<<< HEAD
+--+ LOGIN
+--pedagog
+--stsl2024
+--
+--+DODAJ dnevnik rada
+--+ EDIT radi
+--+ DELETE radi
+--+ PREGLED razreda
+--+ PRETRAĹ˝IVANJE po uceniku
+--+ PREGLED UCENIKA
+--+ DODAVAJENJE ucenika radi
+ -
+--
+--! svak svoje moĹľe samo brisati
+ -! edit ureÄ‘ivanje biljeĹˇki od uÄŤenika
+--! kad vratim datum na 26.3 da upisem na taj datum a ne na danasnji
+ -
+--! u bazi slovo Ĺˇ i Ä‡
+--+ da mi odabir razreda radi na onchange
+--! edit ureÄ‘ivanje biljeĹˇki od uÄŤenika
+--! na dodaj uÄŤenika - id skolske godiine neka pise koja je godina
+--! ime oca i majke nadodati na tablicu od ucenika 
+- + dodaj obavijest da je dodan ucenika
+--
+--
+- !!kad dodam biljesku kod ucenika pise uspjesno uneseno, unosi mi dva puta i trebam refrashat stranicu da vidim odgovor
+--
+ -!!kad dodam biljesku kod ucenika pise uspjesno uneseno, unosi mi dva puta i trebam refrashat stranicu da vidim odgovor...
+ -!!arsen
+ -ĹˇpÄŤolkijuzhÄŤ0p9ol6zjtho987i6u
+=======
 + LOGIN
 pedagog
 stsl2024
@@ -22,8 +54,15 @@ stsl2024
 ! ime oca i majke nadodati na tablicu od ucenika 
 
 
+!!kad dodam biljesku kod ucenika pise uspjesno uneseno, unosi mi dva puta i trebam refrashat stranicu da vidim odgovor
+Andreo Huljic
+andreo 2
 
+<<<<<<< HEAD
 Ivan LUkas  Beck
 
 git guii
 
+=======
+>>>>>>> 80b578f87448bc6a524e583b98aefd9b899ad584
+>>>>>>> 8241935f8f793ec81ee54833ac07e9c05b3ca64f
