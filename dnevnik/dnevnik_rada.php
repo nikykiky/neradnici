@@ -454,19 +454,8 @@
 
 		}
 	});
-	if (mysqli_query($conn, $insertQuery)) {
-		echo "<script>alert('Učenik je uspješno dodan!');</script>";
-	}
->>>>>>> f0e072c608cb4b54b35e429c63af2dbb1849b7da
+	
 
-        if (loggedInUserId == recordOwnerId) {
-            $('#dialog').find("textarea").val(opis_dnevnika_rada);
-            $('#dialog').find("input").val(id_unosa_za_edit);
-            $('#dialog').dialog('open');
-        } else {
-            alert("Nemate dozvolu za uređivanje ovog unosa.");
-        }
-    }
 </script>
 
 </body>
