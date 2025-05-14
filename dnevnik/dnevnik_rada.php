@@ -94,9 +94,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
         echo "</td><td>";
         echo $redak['ime'] . " " . $vrijeme;
         echo "</td><td>";
+		if( $_SESSION['user_id'] == $redak['id_ko']){
         echo "<a onclick='uredi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
         echo "</td><td>";
         echo "<a onclick='izbrisi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
+        echo "</td></tr>";}
+		else{
+			echo "<a style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
+        echo "</td><td>";//hhh
+        echo "<a style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
+        echo "</td></tr>";
+		}
+		echo "</td><td>";
+		if ($redak['id_ko'] == $_SESSION['user_id']) {
+			echo "<a onclick='izbrisi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
+		} else {
+			echo "-";
+		}
+		
         echo "</td></tr>";
     }
 	echo "</tbody></table>";
@@ -149,22 +164,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
 			<tbody>";
 
 
-    while ($redak_bilj = mysqli_fetch_assoc($pdtc_biljeske)) {
-        $idu = $redak_bilj['id_uc'];
-        //$dt = new DateTime($redak['datum_unosa']);
-        //$vrijeme = $dt->format('H:i');
-
-        echo "<tr valign='top'data-id='".$idu."'><td>";
-        echo $redak_bilj['oznaka_raz'];
-        echo "</td><td>";
-        echo '<a href="../ucenik/pregled_ucenika.php?id_ucenika=' . $redak_bilj['id_uc'] . '">';
-			echo $redak_bilj['ime'] . " " . $redak_bilj['prezime'];
-			echo '</a>';
-        echo "</td><td>";
-       	echo $redak_bilj['opis'];
-	   	echo "</td></tr>";
-    }
-    echo "</tbody></table>";
+			while ($redak = mysqli_fetch_array($pdtc_dnevnik_rada)) {
+				$id = $redak['id_dr'];
+				$dt = new DateTime($redak['datum_unosa']);
+				$vrijeme = $dt->format('H:i');
+			
+				echo "<tr valign='top' data-id='".$id."'><td>";
+				echo $redak['opis'];
+				echo "</td><td>";
+				echo $redak['ime'] . " " . $vrijeme;
+				echo "</td>";
+			
+				if ($redak['id_ko'] == $_SESSION['user_id']) {
+					echo "<td><a onclick='uredi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a></td>";
+					echo "<td><a onclick='izbrisi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbriši</a></td>";
+				} else {
+					echo "<td></td><td></td>";
+				}
+			
+				echo "</tr>";
+			}
+			
     ?>
 </div>
 
