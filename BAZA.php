@@ -190,3 +190,4 @@ UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='099374
 --tripitropa
 
 -- grga ima malog
+---Jure jebenti pleme teletinasto
