@@ -149,7 +149,7 @@ input[type="date"]:focus {
 				}
 				echo "</select>
 			</form>
-			</div>";
+			</div>";"
 
 			// onchange='this.form.submit()' onchange='dodaj_ucu()'
 
@@ -167,7 +167,7 @@ input[type="date"]:focus {
 					echo "<option value='".$raz['oznaka_raz']."'>".$raz['oznaka_raz']."</option>";
 				}
 			}
-			echo "
+			echo ";
         </select>
     </form>
 </div>";
