@@ -181,3 +181,5 @@ UPDATE stsl_ucenik SET ime_ro2='TAra', prezime_ro2='Kralj', telefon_ro2='0991256
 UPDATE stsl_ucenik SET ime_ro2='Arsen', prezime_ro2='Neradnik', telefon_ro2='099136488' WHERE id_uc=2;
 UPDATE stsl_ucenik SET ime_ro2='Mrse', prezime_ro2='Neradnik', telefon_ro2='0946583758' WHERE id_uc=3;
 UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='09937485893' WHERE id_uc=4;
+
+++jooo
