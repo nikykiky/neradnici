@@ -190,8 +190,4 @@ UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='099374
 --tripitropa
 --lebron
 -- grga ima malog
-<<<<<<< HEAD
 ---Ivana
-=======
----petra
->>>>>>> cff5c5db9c31308170f294833db66d3ebd0735c3
