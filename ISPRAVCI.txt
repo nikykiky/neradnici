@@ -68,7 +68,7 @@ aloo2
 <<<<<<< HEAD
 Ivan LUkas  Beck
 
-git guii
+git gui
 
 =======
 >>>>>>> 80b578f87448bc6a524e583b98aefd9b899ad584
