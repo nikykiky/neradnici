@@ -1,3 +1,5 @@
+// toma je bio ovdje
+
 CREATE DATABASE gogstorg_zavrsni CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `stsl_ucenik` (
@@ -184,6 +186,7 @@ UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='099374
 SELECT * FROM `stsl_ucenik`
 UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='09937485893' WHERE id_uc=4;
 
+lalalalalala
 --lelelelele
 --lebron
 
