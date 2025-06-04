@@ -2,7 +2,7 @@ CREATE DATABASE gogstorg_zavrsni CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_c
 
 CREATE TABLE `stsl_ucenik` (
 `id_uc` int(4) auto_increment primary key, 
-`ime` char(15) NOT NULL,  
+`ime` int(15) NOT NULL,  
 `prezime` char(30) NOT NULL,
 `oib` int(11),  
 `datum_rodenja` date,  
