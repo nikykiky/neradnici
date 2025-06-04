@@ -58,4 +58,19 @@ stsl2024
 Andreo Huljic
 andreo 2
 
+<<<<<<< HEAD
+GIT GUI-COMMIT
+
+aloooooo
+aloo2
+
+=======
+<<<<<<< HEAD
+Ivan LUkas  Beck
+
+git guii
+
+=======
 >>>>>>> 80b578f87448bc6a524e583b98aefd9b899ad584
+>>>>>>> 8241935f8f793ec81ee54833ac07e9c05b3ca64f
+>>>>>>> 49493d818da4d6b37030d9a18ebfbb6e0bfe06e8

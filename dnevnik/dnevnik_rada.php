@@ -94,10 +94,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
         echo "</td><td>";
         echo $redak['ime'] . " " . $vrijeme;
         echo "</td><td>";
-        if ($redak['id_ko'] == $_SESSION['user_id']) {
-			echo "<a onclick='uredi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
-		} else {
-			echo "-";
+		if( $_SESSION['user_id'] == $redak['id_ko']){
+        echo "<a onclick='uredi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
+        echo "</td><td>";
+        echo "<a onclick='izbrisi_unos_iz_dnevnika(this)' style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
+        echo "</td></tr>";}
+		else{
+			echo "<a style='text-decoration: underline; cursor: pointer' data-dr_opis='$redak[opis]' data-dr_id='$id'>Uredi</a>";
+        echo "</td><td>";//hhh
+        echo "<a style='text-decoration: underline; cursor: pointer' data-dr_id='$id'>Izbrisi</a>";
+        echo "</td></tr>";
 		}
 		echo "</td><td>";
 		if ($redak['id_ko'] == $_SESSION['user_id']) {
@@ -313,13 +319,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sbmt_dnevnik_rad'])) {
 
 		}
 	});
-<<<<<<< HEAD
 
 
-=======
-	
-
->>>>>>> 02e83645b5e60080e98d7bcca116cf56ad38ee2a
 </script>
 </body>
 </html>
