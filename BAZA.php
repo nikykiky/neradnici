@@ -1,3 +1,5 @@
+// toma je bio ovdje
+
 CREATE DATABASE gogstorg_zavrsni CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE `stsl_ucenik` (
