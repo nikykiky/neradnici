@@ -192,3 +192,5 @@ SELECT * FROM `stsl_ucenik`
 UPDATE stsl_ucenik SET ime_ro2='Mrse', prezime_ro2='Neradnik', telefon_ro2='0946583758' WHERE id_uc=3;
 SELECT * FROM `stsl_ucenik`
 UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='09937485893' WHERE id_uc=4;
+
+lalalalalala
