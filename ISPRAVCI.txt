@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 --+ LOGIN
 --pedagog
 --stsl2024
@@ -29,7 +28,8 @@
  -!!kad dodam biljesku kod ucenika pise uspjesno uneseno, unosi mi dva puta i trebam refrashat stranicu da vidim odgovor...
  -!!arsen
  -ĹˇpÄŤolkijuzhÄŤ0p9ol6zjtho987i6u
-=======
+
+ 
 + LOGIN
 pedagog
 stsl2024
@@ -58,4 +58,3 @@ stsl2024
 Andreo Huljic
 andreo 2
 
->>>>>>> 80b578f87448bc6a524e583b98aefd9b899ad584
