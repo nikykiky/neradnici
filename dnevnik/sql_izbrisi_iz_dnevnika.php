@@ -17,8 +17,9 @@
     
     if (isset($_POST['id_unosa_za_brisanje'])) {
         $id_b = $_POST['id_unosa_za_brisanje'];
-    
-        $brisanje = "DELETE FROM stsl_dnevnik_rada WHERE id_dr = $id_b";
+        $korisnik = $_SESSION['user_id']
+
+        $brisanje = "DELETE FROM stsl_dnevnik_rada WHERE id_dr = $id_b  AND id_ko = $korisnik" 
         $querry = mysqli_query($conn, $brisanje);
     
         if ($querry && mysqli_affected_rows($conn) > 0) {

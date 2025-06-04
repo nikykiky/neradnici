@@ -148,11 +148,33 @@ input[type="date"]:focus {
 				}
 				echo "</select>
 			</form>
-			</div>";
+			</div>";"
 
 			// onchange='this.form.submit()' onchange='dodaj_ucu()'
 
 
+<<<<<<< HEAD
+=======
+    			<form action='".$_SERVER['PHP_SELF']."' method='POST' id='forma_select'>
+       			<select name='razred' onchange='this.form.submit()'>
+            <option value='--'>--</option>";
+
+			while($raz = mysqli_fetch_array($razredi)) {
+				
+				if (isset($_POST['razred']) && $_POST['razred'] == $raz['oznaka_raz']) {
+					echo "<option value='".$raz['oznaka_raz']."' selected>".$raz['oznaka_raz']."</option>";
+				} else {
+					echo "<option value='".$raz['oznaka_raz']."'>".$raz['oznaka_raz']."</option>";
+				}
+			}
+			echo ";
+        </select>
+    </form>
+</div>";
+				//<input type='submit' name='ispis_po_razredu' value='Pregledaj'/>
+>>>>>>> 6dc2fc0e1ee78dd802e58127f663fbd190b6e4fc
+=======
+>>>>>>> d8a78099362b9229c54bfdfba2101c09330fec1e
 			//echo '<input type="submit" onclick="dodaj_ucu()" value="Dodaj učenika" />';
 		?>	
 	</div>
