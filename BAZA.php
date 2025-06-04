@@ -4,7 +4,7 @@ CREATE DATABASE gogstorg_zavrsni CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_c
 
 CREATE TABLE `stsl_ucenik` (
 `id_uc` int(4) auto_increment primary key, 
-`ime` char(15) NOT NULL,  
+`ime` int(15) NOT NULL,  
 `prezime` char(30) NOT NULL,
 `oib` int(11),  
 `datum_rodenja` date,  
@@ -183,3 +183,13 @@ UPDATE stsl_ucenik SET ime_ro2='TAra', prezime_ro2='Kralj', telefon_ro2='0991256
 UPDATE stsl_ucenik SET ime_ro2='Arsen', prezime_ro2='Neradnik', telefon_ro2='099136488' WHERE id_uc=2;
 UPDATE stsl_ucenik SET ime_ro2='Mrse', prezime_ro2='Neradnik', telefon_ro2='0946583758' WHERE id_uc=3;
 UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='09937485893' WHERE id_uc=4;
+SELECT * FROM `stsl_ucenik`
+UPDATE stsl_ucenik SET ime_ro2='ok', prezime_ro2='roditelj', telefon_ro2='09937485893' WHERE id_uc=4;
+
+--lelelelele
+--lebron
+
+--tripitropa
+--lebron
+-- grga ima malog
+---Ivana
